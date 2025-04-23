@@ -25,7 +25,7 @@ const Consult = () => {
 export const deleteIdea = async (id, setIdeas) => {
     if (window.confirm('Êtes-vous sûr de vouloir supprimer cette idée ?')) {
       try {
-        const response = await fetch(`http://localhost:3000/idees/${id}`, { method: 'DELETE' });
+        const response = await fetch(`https://express-bai.vercel.app/idees/${id}`, { method: 'DELETE' });
         if (response.ok) {
           setIdeas((prevIdeas) => prevIdeas.filter((idea) => idea.id_idee !== id));
         } else {
@@ -41,7 +41,7 @@ export const deleteIdea = async (id, setIdeas) => {
 // Mettre à jour l'évaluation
 export const updateEvaluation = async (id, note, setIdeas) => {
     try {
-      const response = await fetch(`http://localhost:3000/idees/${id}/evaluation`, {
+      const response = await fetch(`https://express-bai.vercel.app/idees/${id}/evaluation`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ note }),
@@ -65,7 +65,7 @@ export const updateEvaluation = async (id, note, setIdeas) => {
 export const updateStatus = async (id, statut, setIdeas) => {
   try {
       const numericStatus = statut === 'Validé' ? 2 : 1; // Convertir le statut en nombre
-      const response = await fetch(`http://localhost:3000/idees/${id}/statut`, {
+      const response = await fetch(`https://express-bai.vercel.app/idees/${id}/statut`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({ statut: numericStatus }),
