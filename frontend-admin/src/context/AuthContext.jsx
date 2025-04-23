@@ -23,7 +23,7 @@ export const AuthProvider = ({ children }) => {
       }
   
       try {
-        const res = await fetch('http://localhost:3000/auth', {
+        const res = await fetch('https://express-bai.vercel.app/auth', {
           headers: { Authorization: `Bearer ${token}` },
         });
   
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (login, password) => {
     try {
-      const res = await fetch('http://localhost:3000/auth/login', {
+      const res = await fetch('https://express-bai.vercel.app/auth/login', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ login, password }),
