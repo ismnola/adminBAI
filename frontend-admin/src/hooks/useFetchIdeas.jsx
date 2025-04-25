@@ -8,7 +8,7 @@ export const useFetchIdeas = () => {
     const token = localStorage.getItem('token');
     setLoading(true);
     try {
-      const res = await fetch('https://express-bai.vercel.app/idees', {
+      const res = await fetch('https://expressbai-production.up.railway.app/idees', {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = await res.json();
